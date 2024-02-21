@@ -9,7 +9,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: feature/CUS-1729_CUS-1797_github_actions
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
