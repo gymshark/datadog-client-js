@@ -1,7 +1,7 @@
 # DataDog Client JS
 
-This is an opinionated client for integrating with DataDog directly for things like logging and metrics. 
-This client is designed to be a wrapper for simplifying the instantiation of existing clients.
+This is an opinionated client for integrating with DataDog directly for logging and metrics. 
+This package is designed to be a wrapper for simplifying the instantiation of existing package implementations.
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/51830d3cc410417c94543df82dc09a6f)](https://app.codacy.com/gh/gymshark/datadog-client-js/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
