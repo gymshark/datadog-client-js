@@ -9,7 +9,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          branch: main
+          ref: main
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
@@ -21,5 +21,5 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           npm version ${{ github.event.release.tag_name }} -m "[ci skip] v%s"
-          git tag ${{ github.event.release.tag_name }}
+          git tag -f ${{ github.event.release.tag_name }}
           git push --follow-tags --force
