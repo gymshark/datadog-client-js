@@ -7,7 +7,7 @@
       runs-on: ubuntu-latest
       strategy:
         matrix:
-          node-version: ['16.x', '18.x', '20.x']
+          node-version: ['18.x', '20.x']
       steps:
         - name: Checkout
           uses: actions/checkout@v4
@@ -23,4 +23,4 @@
           uses: codacy/codacy-coverage-reporter-action@v1
           with:
             project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-            coverage-report: ./coverage/lcov.info
+            coverage-reports: ./coverage/lcov.info
