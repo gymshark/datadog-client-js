@@ -4,6 +4,8 @@ on:
       types: [published]
 jobs:
   increment-version:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
