@@ -1,6 +1,6 @@
 {
   "name": "@gymshark/datadog-client",
-  "version": "0.2.0-alpha",
+  "version": "0.4.0-alpha",
   "description": "An opinionated wrapper for instantiating client to push metrics and logs to DataDog",
   "main": "lib/client.js",
   "scripts": {
