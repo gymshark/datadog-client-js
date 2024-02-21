@@ -8,7 +8,7 @@
   },
   "jest": {
     "collectCoverage": true,
-    "coverageReporters": ["json", "html"]
+    "coverageReporters": ["lcov", "html"]
   },
   "repository": {
     "type": "git",
