@@ -1,6 +1,5 @@
 name: Increment Version
 on:
-  workflow_dispatch:
   release:
     types: [published]
 jobs:
