@@ -6,6 +6,10 @@
   "scripts": {
     "test": "jest"
   },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": ["json", "html"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gymshark/datadog-client-js.git"

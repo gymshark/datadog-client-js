@@ -18,4 +18,9 @@
         - name: NPM CI
           run: npm ci
         - name: Test
-          run: npm test
+          run: npm test -- --coverage --passWithNoTests
+        - name: Upload Code Coverage
+          uses: codacy/codacy-coverage-reporter-action@v1
+          with:
+            project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+            coverage-report: ./coverage/lcov.info
