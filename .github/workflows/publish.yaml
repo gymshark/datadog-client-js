@@ -24,7 +24,7 @@ jobs:
           git config user.email github-actions@github.com
           npm version ${{ github.event.release.tag_name }} -m "[ci skip] v%s"
           git tag -af ${{ github.event.release.tag_name }} -m "[ci skip] v%s"
-          git push origin --tags --force
+          git push origin --follow-tags --force
   publish:
     runs-on: ubuntu-latest
     needs:
