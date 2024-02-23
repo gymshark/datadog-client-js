@@ -154,10 +154,46 @@ logger.info('Hello World');
     - **transports** - `Console Transport` and `HTTP Transport`
 
 ### Metric Client
-The metric client instantiation either returns [datadog-metrics](https://www.npmjs.com/package/datadog-metrics) metric client or if sampling is enabled, it will return a no-op client that will not send metrics to DataDog.
+The metric client instantiation either returns [datadog-metrics](https://www.npmjs.com/package/datadog-metrics) metric client with some additional logic for handling whether sampling of metrics.
+The sampling logic will take a unique key and a sampling rate, the key will be hashed and the hash will be used to determine if the metric should be sent to DataDog.
 
+<details open>
+<summary>With Mandatory Options</summary>
+
+Using `require` to import dependencies
 ```javascript
+const client = require('@gymsark/datadog-client');
 
+const metrics = client.metrics({
+  apiKey: 'dd-api-key',
+  prefix: 'test'
+});
+
+metrics.increment('api.call', 1, ['env:develop']);
 ```
 
+Using `import` to import dependencies
+```javascript
+import client from '@gymsark/datadog-client';
+
+const metrics = client.metrics({
+    apiKey: 'dd-api-key',
+    prefix: 'test'
+});
+
+metrics.increment('api.call', 1, ['env:develop']);
+```
+</details>
+
 #### Metric Options
+- **apiKey** - Your DataDog API Key *[required]*
+- **prefix** - The prefix to be added to all metrics *[required]*
+- **ddRegion** - The region yourDataDog account is in. This is used to determine the DataDog domain.
+- **samplingEnabled** - A boolean to determine if sampling should be enabled. Defaults to `false`
+- **samplingKey** - A unique string to be used to determine if the metric should be sampled. *[required if samplingEnabled is true]*
+  - The **samplingKey** is required in cases where you need to instantiate the metric client multiple times in different sandboxes,
+    and you want to ensure that the same sampling setup is provided for each sandbox.
+  - And example use case of this is Auth0 actions, where you may have multiple actions running in the same environment,
+    and you want to ensure that the same sampling rate is applied to each action.
+- **samplingRate** - The rate at which metrics should be sampled. This value is a percentage representation of the rate. Defaults to `0`
+- Any [datadog-metrics](https://www.npmjs.com/package/datadog-metrics) logger options
