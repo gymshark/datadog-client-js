@@ -196,4 +196,4 @@ metrics.increment('api.call', 1, ['env:develop']);
   - And example use case of this is Auth0 actions, where you may have multiple actions running in the same environment,
     and you want to ensure that the same sampling rate is applied to each action.
 - **samplingRate** - The rate at which metrics should be sampled. This value is a percentage representation of the rate. Defaults to `0`
-- Any [datadog-metrics](https://www.npmjs.com/package/datadog-metrics) logger options
+- Any [datadog-metrics](https://www.npmjs.com/package/datadog-metrics) options
