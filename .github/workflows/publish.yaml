@@ -30,7 +30,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          git remote set-url origin https://x-access-token/:${{ steps.app-token.outputs.token }}@github.com/${{ github.repository }}
+          git remote set-url origin https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/${{ github.repository }}
           npm version ${{ github.event.release.tag_name }} -m "[ci skip] v%s"
           git tag -af ${{ github.event.release.tag_name }} -m "[ci skip] v%s"
           git push
