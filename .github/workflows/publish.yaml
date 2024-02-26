@@ -24,8 +24,8 @@ jobs:
           node-version: '18.x'
           cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
+      - uses: chainguard-dev/actions/setup-gitsign@main
       - name: Increment version
-        uses: chainguard-dev/actions/setup-gitsign@main
         shell: bash
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
