@@ -12,28 +12,24 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18.x'
-          cache: 'npm'
-          registry-url: 'https://registry.npmjs.org'
       - name: Get GH Token
         uses: actions/create-github-app-token@v1
         id: app-token
         with:
           app-id: ${{ vars.GH_RELEASE_APP_ID }}
           private-key: ${{ secrets.GH_RELEASE_APP_PRIVATE_KEY }}
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
       - name: Increment version
         uses: chainguard-dev/actions/setup-gitsign@main
         shell: bash
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-# Temporarily commenting out setting the git user.name and user.email to try the gitsign action which set these for signing commits.
-# https://www.chainguard.dev/unchained/keyless-git-commit-signing-with-gitsign-and-github-actions - not recommended for private repos
-#          git config user.name "datadogclientjsrepopush[bot]"
-#          git config user.email "161316041+datadogclientjsrepopush[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token/:${{ steps.app-token.outputs.token }}@github.com/${{ github.repository }}
           npm version ${{ github.event.release.tag_name }} -m "[ci skip] v%s"
           git tag -af ${{ github.event.release.tag_name }} -m "[ci skip] v%s"
