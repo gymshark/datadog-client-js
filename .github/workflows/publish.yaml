@@ -30,8 +30,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          git config user.name "datadogclientjsrepopush[bot]"
-          git config user.email "161316041+datadogclientjsrepopush[bot]@users.noreply.github.com"
+          git config --global user.name "datadogclientjsrepopush[bot]"
+          git config --global user.email "161316041+datadogclientjsrepopush[bot]@users.noreply.github.com"
           npm version ${{ github.event.release.tag_name }} -m "[ci skip] v%s"
           git tag -af ${{ github.event.release.tag_name }} -m "[ci skip] v%s"
           git push
