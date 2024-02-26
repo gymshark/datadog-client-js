@@ -8,16 +8,17 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: fix/CUS-1729_improving_test_consistency # Testing pushing to a feature branch
       - name: Get GH Token
         uses: actions/create-github-app-token@v1
         id: app-token
         with:
           app-id: ${{ vars.GH_RELEASE_APP_ID }}
           private-key: ${{ secrets.GH_RELEASE_APP_PRIVATE_KEY }}
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: fix/CUS-1729_improving_test_consistency # Testing pushing to a feature branch
+          token: ${{ steps.app-token.outputs.token }}
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
