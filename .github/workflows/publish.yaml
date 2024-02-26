@@ -26,6 +26,7 @@ jobs:
           node-version: '18.x'
           cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
+      - uses: chainguard-dev/actions/setup-gitsign@main
       - name: Increment version
         shell: bash
         env:
@@ -35,7 +36,7 @@ jobs:
           git config --global user.email "161316041+datadogclientjsrepopush[bot]@users.noreply.github.com"
           npm version ${{ github.event.release.tag_name }} -m "[ci skip] v%s"
           git tag -af ${{ github.event.release.tag_name }} -m "[ci skip] v%s"
-          git push
+          git push --force
           git push origin --tags --force
   publish:
     runs-on: ubuntu-latest
