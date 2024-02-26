@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: fix/CUS-1729_improving_test_consistency # Testing pushing to a feature branch
       - name: Get GH Token
         uses: actions/create-github-app-token@v1
         id: app-token
