@@ -38,7 +38,7 @@ The logger is configured to have 2 transports:
 
 Using `require` to import dependencies
 ```javascript
-const client = require('@gymsark/datadog-client');
+const client = require('@gymshark/datadog-client');
 
 const logger = client.logger({
     apiKey: 'dd-api-key',
@@ -50,7 +50,7 @@ logger.info('Hello World');
 
 Using `import` to import dependencies
 ```javascript
-import  client from '@gymsark/datadog-client';
+import  client from '@gymshark/datadog-client';
 
 const logger = client.logger({
     apiKey: 'dd-api-key',
@@ -66,7 +66,7 @@ logger.info('Hello World');
 
 Using `require` to import dependencies
 ```javascript
-const client = require('@gymsark/datadog-client');
+const client = require('@gymshark/datadog-client');
 
 const logger = client.logger({
     apiKey: 'dd-api-key',
@@ -79,7 +79,7 @@ logger.info('Hello World');
 
 Using `import` to import dependencies
 ```javascript
-import  client from '@gymsark/datadog-client';
+import  client from '@gymshark/datadog-client';
 
 const logger = client.logger({
     apiKey: 'dd-api-key',
@@ -95,7 +95,7 @@ logger.info('Hello World');
 
 Using `require` to import dependencies
 ```javascript
-const client = require('@gymsark/datadog-client');
+const client = require('@gymshark/datadog-client');
 const winston = require('winston');
 
 const logger = client.logger({
@@ -118,7 +118,7 @@ logger.info('Hello World');
 
 Using `import` to import dependencies
 ```javascript
-import  client from '@gymsark/datadog-client';
+import  client from '@gymshark/datadog-client';
 import winston from 'winston';
 
 const logger = client.logger({
@@ -162,7 +162,7 @@ The sampling logic will take a unique key and a sampling rate, the key will be h
 
 Using `require` to import dependencies
 ```javascript
-const client = require('@gymsark/datadog-client');
+const client = require('@gymshark/datadog-client');
 
 const metrics = client.metrics({
   apiKey: 'dd-api-key',
@@ -174,7 +174,7 @@ metrics.increment('api.call', 1, ['env:develop']);
 
 Using `import` to import dependencies
 ```javascript
-import client from '@gymsark/datadog-client';
+import client from '@gymshark/datadog-client';
 
 const metrics = client.metrics({
     apiKey: 'dd-api-key',
