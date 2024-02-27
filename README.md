@@ -11,7 +11,7 @@ This package is designed to be a wrapper for simplifying the instantiation of ex
 ## Requirements
 
 * Node 18.x or higher
-* Datadog API and App Key
+* Datadog Account and have generated an API Key
 
 ## Installation
 
