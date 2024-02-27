@@ -188,7 +188,7 @@ metrics.increment('api.call', 1, ['env:develop']);
 #### Metric Options
 - **apiKey** - Your DataDog API Key *[required]*
 - **prefix** - The prefix to be added to all metrics *[required]*
-- **ddRegion** - The region yourDataDog account is in. This is used to determine the DataDog domain.
+- **ddRegion** - The region your DataDog account is in. This is used to determine the DataDog domain.
 - **samplingEnabled** - A boolean to determine if sampling should be enabled. Defaults to `false`
 - **samplingKey** - A unique string to be used to determine if the metric should be sampled. *[required if samplingEnabled is true]*
   - The **samplingKey** is required in cases where you need to instantiate the metric client multiple times in different sandboxes,
