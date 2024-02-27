@@ -4,14 +4,14 @@ This is an opinionated client for integrating with DataDog directly for logging 
 This package is designed to be a wrapper for simplifying the instantiation of existing package implementations.
 
 [![Build and Test](https://github.com/gymshark/datadog-client-js/actions/workflows/build.yaml/badge.svg)](https://github.com/gymshark/datadog-client-js/actions/workflows/build.yaml)
-[![Publish Package](https://github.com/gymshark/datadog-client-js/actions/workflows/publish.yaml/badge.svg?branch=main)](https://github.com/gymshark/datadog-client-js/actions/workflows/publish.yaml)
+[![Publish Package](https://github.com/gymshark/datadog-client-js/actions/workflows/publish.yaml/badge.svg?event=release)](https://github.com/gymshark/datadog-client-js/actions/workflows/publish.yaml)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/51830d3cc410417c94543df82dc09a6f)](https://app.codacy.com/gh/gymshark/datadog-client-js/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/51830d3cc410417c94543df82dc09a6f)](https://app.codacy.com/gh/gymshark/datadog-client-js/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
 
 ## Requirements
 
 * Node 18.x or higher
-* Datadog API and App Key
+* Datadog Account and have generated an API Key
 
 ## Installation
 
@@ -188,7 +188,7 @@ metrics.increment('api.call', 1, ['env:develop']);
 #### Metric Options
 - **apiKey** - Your DataDog API Key *[required]*
 - **prefix** - The prefix to be added to all metrics *[required]*
-- **ddRegion** - The region yourDataDog account is in. This is used to determine the DataDog domain.
+- **ddRegion** - The region your DataDog account is in. This is used to determine the DataDog domain.
 - **samplingEnabled** - A boolean to determine if sampling should be enabled. Defaults to `false`
 - **samplingKey** - A unique string to be used to determine if the metric should be sampled. *[required if samplingEnabled is true]*
   - The **samplingKey** is required in cases where you need to instantiate the metric client multiple times in different sandboxes,
