@@ -4,7 +4,7 @@ This is an opinionated client for integrating with DataDog directly for logging 
 This package is designed to be a wrapper for simplifying the instantiation of existing package implementations.
 
 [![Build and Test](https://github.com/gymshark/datadog-client-js/actions/workflows/build.yaml/badge.svg)](https://github.com/gymshark/datadog-client-js/actions/workflows/build.yaml)
-[![Publish Package](https://github.com/gymshark/datadog-client-js/actions/workflows/publish.yaml/badge.svg?branch=main)](https://github.com/gymshark/datadog-client-js/actions/workflows/publish.yaml)
+[![Publish Package](https://github.com/gymshark/datadog-client-js/actions/workflows/publish.yaml/badge.svg?event=release)](https://github.com/gymshark/datadog-client-js/actions/workflows/publish.yaml)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/51830d3cc410417c94543df82dc09a6f)](https://app.codacy.com/gh/gymshark/datadog-client-js/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/51830d3cc410417c94543df82dc09a6f)](https://app.codacy.com/gh/gymshark/datadog-client-js/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
 
