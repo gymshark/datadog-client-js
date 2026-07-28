@@ -170,6 +170,7 @@ const metrics = client.metrics({
 });
 
 metrics.increment('api.call', 1, ['env:develop']);
+await metrics.flush();
 ```
 
 Using `import` to import dependencies
@@ -182,6 +183,7 @@ const metrics = client.metrics({
 });
 
 metrics.increment('api.call', 1, ['env:develop']);
+await metrics.flush();
 ```
 </details>
 
@@ -196,4 +198,7 @@ metrics.increment('api.call', 1, ['env:develop']);
   - And example use case of this is Auth0 actions, where you may have multiple actions running in the same environment,
     and you want to ensure that the same sampling rate is applied to each action.
 - **samplingRate** - The rate at which metrics should be sampled. This value is a percentage representation of the rate. Defaults to `0`
-- Any [datadog-metrics](https://www.npmjs.com/package/datadog-metrics) options
+- **flushIntervalSeconds** - How often to send metrics to Datadog (in seconds) including on exit. Disabled by default, requires manually calling `flush()`.
+- **retries** - How many times to retry flushes. Disabled by default.
+- **retryBackoff** - How long (in seconds) to wait between retries. Subsequent retries wait exponentially longer.
+- Any [datadog-metrics](https://www.npmjs.com/package/datadog-metrics) options.

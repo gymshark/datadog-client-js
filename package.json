@@ -39,7 +39,7 @@
     "winston-transport": "^4.7.0"
   },
   "dependencies": {
-    "datadog-metrics": "^0.11.1",
+    "datadog-metrics": "0.13.0-pre.2",
     "winston": "^3.11.0"
   }
 }
