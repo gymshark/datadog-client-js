@@ -10,7 +10,7 @@ This package is designed to be a wrapper for simplifying the instantiation of ex
 
 ## Requirements
 
-* Node 18.x or higher
+* Node 22.x or higher
 * Datadog Account and have generated an API Key
 
 ## Installation
