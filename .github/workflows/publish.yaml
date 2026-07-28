@@ -1,26 +1,32 @@
 name: Publish Package
+
 on:
   release:
       types: [published]
+
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.event.release.tag_name }}
       - name: Use Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '18.x'
-          cache: 'npm'
+          node-version: '24'
           registry-url: 'https://registry.npmjs.org'
+          package-manager-cache: false
       - name: Increment Version
         run: npm version ${{ github.event.release.tag_name }} --git-tag-version=false
       - name: Install dependencies and build 🔧
         run: npm ci
-      - name: Publish package on NPM 📦
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Re-Test 🧪
+        run: npm test
+      - name: Staged publish package on NPM 📦
+        run: npm stage publish # Requires manual approval in the Staged Packages tab on npmjs.com

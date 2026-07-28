@@ -6,6 +6,9 @@
   "scripts": {
     "test": "jest"
   },
+  "engines": {
+    "node": ">=22"
+  },
   "jest": {
     "collectCoverage": true,
     "coverageReporters": [
